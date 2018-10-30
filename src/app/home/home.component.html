@@ -1,0 +1,4 @@
+<div *ngIf="statuses.length > 0">Listado de estados:</div>
+<ul>
+  <li *ngFor="let status of statuses"><a [routerLink]='["/status-page", status]'>{{ status }}</a></li>
+</ul>

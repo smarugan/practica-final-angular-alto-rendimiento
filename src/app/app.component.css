@@ -1,0 +1,35 @@
+ul#menu {
+  padding: 0;
+  margin: 0 0 10px 0;
+}
+
+ul#menu li{
+  display: inline-block;
+  margin-right: 10px;
+  background-color: cornflowerblue;
+  color: lavender;
+  border: solid 1px transparent;
+}
+
+ul#menu li:hover{
+  background-color: lavender;
+  color: cornflowerblue;
+  border: solid 1px lightblue;
+}
+
+ul#menu li a{
+  padding: 6px 10px;
+  display: inline-block;
+  text-decoration: none;
+  color: inherit;
+}
+
+div#breadcrumb {
+  background-color: lavender;
+  padding: 4px 2px;
+  font-family: monospace;
+  font-size: 10px;
+  color: blueviolet;
+  margin-bottom: 15px;
+}
+
