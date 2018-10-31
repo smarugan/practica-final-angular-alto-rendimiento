@@ -1,4 +1,4 @@
-<div *ngIf="statuses.length > 0">Listado de estados:</div>
+<div *ngIf="(statuses$ | async).length > 0">Listado de estados:</div>
 <ul>
-  <li *ngFor="let status of statuses"><a [routerLink]='["/status-page", status]'>{{ status }}</a></li>
+  <li *ngFor="let status of (statuses$ | async)"><a [routerLink]='["/status-page", status.id, status.name]'>{{ status.name }}</a></li>
 </ul>

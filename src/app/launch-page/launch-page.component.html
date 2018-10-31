@@ -1,0 +1,9 @@
+<div *ngIf="(launch$ | async) === undefined; else loaded">Loading launch data...</div>
+<ng-template #loaded>
+  <hr>
+  <h5>Launch page details</h5>
+  <div>
+    <div><b>Launch id: </b>{{ (launch$ | async).id }}</div>
+    <div><b>Launch name: </b>{{ (launch$ | async).name }}</div>
+  </div>
+</ng-template>

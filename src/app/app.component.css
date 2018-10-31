@@ -24,12 +24,3 @@ ul#menu li a{
   color: inherit;
 }
 
-div#breadcrumb {
-  background-color: lavender;
-  padding: 4px 2px;
-  font-family: monospace;
-  font-size: 10px;
-  color: blueviolet;
-  margin-bottom: 15px;
-}
-

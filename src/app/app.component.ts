@@ -1,7 +1,5 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
-import { Router, ActivatedRoute, NavigationEnd } from '@angular/router';
-
-import { filter } from 'rxjs/operators';
+import { SwUpdate, UpdateAvailableEvent } from '@angular/service-worker';
 
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -10,14 +8,13 @@ import { filter } from 'rxjs/operators';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  currentPage = '';
 
-  constructor(private router: Router) {
-    this.router.events.subscribe(event => {
-      if (event instanceof NavigationEnd) {
-        // console.log('BREADCRUMB!!', event);
-        this.currentPage = event.url;
-      }
-    });
+  constructor(swUpdate: SwUpdate) {
+    if (swUpdate.isEnabled) {
+      swUpdate.available.subscribe((event: UpdateAvailableEvent) => {
+        const msg = 'New version available. Download now?';
+        if (confirm(msg)) { window.location.reload(); }
+      });
+    }
   }
 }

@@ -1,3 +1,13 @@
-<p>
-  status-page works!
-</p>
+<div *ngIf="(launches$ | async)?.length > 0; else loading">
+
+  <button (click)="newer()">Newer</button>
+  <button (click)="older()">Older</button>
+  <hr>
+  Listado de estados:
+
+  <div>Total: {{ (launches$ | async).length}}</div>
+  <ul>
+    <li *ngFor="let launch of (launches$ | async)"><a [routerLink]='["/launch-page", launch.id]'>{{ launch.name }}</a></li>
+  </ul>
+</div>
+<ng-template #loading>Loading launches...</ng-template>
